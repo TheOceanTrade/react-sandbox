@@ -1,6 +1,6 @@
 ## Codesandbox in your browser
 
-Check out the project on codesandbox here [https://codesandbox.io/s/github/TheOceanX/react-sandbox]
+Check out the project on codesandbox here https://codesandbox.io/s/github/TheOceanX/react-sandbox
 
 ## Running Locally
 
