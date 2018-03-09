@@ -10,6 +10,8 @@ Check out the project on codesandbox here https://codesandbox.io/s/github/TheOce
   
 2. Install packages
 
+  ```cd react-sandbox/```
+  
   ```npm install```
   
 3. Run
