@@ -34,11 +34,13 @@ class App extends React.Component {
       });
       window.web3.version.getNetwork((err, netId) => {
         this.setState({
-          networkId: netId,
-          networkLoaded: true
+          networkId: netId
         });
       });
     } else {
+      this.ocean = await createOcean({
+        api: this.api
+      });
       this.setState({ missingWeb3: true });
     }
     let pairs = await this.ocean.marketData.tokenPairs();
@@ -54,32 +56,11 @@ class App extends React.Component {
   }
 
   render() {
-    if (!this.state.networkLoaded || !this.state.pairLoaded) {
+    if (!this.state.pairLoaded) {
       return (
         <div>
           <h1> Loading The Ocean X Sandbox ...</h1>
           <p> If this takes more than a few seconds, try restarting chrome</p>
-        </div>
-      );
-    } else if (this.state.missingWeb3) {
-      return (
-        <div>
-          <h1> No web3 provider detected. </h1>
-          <p>
-            {" "}
-            You probably need to install or activate{" "}
-            <a href="https://metamask.io/">metamask</a>
-          </p>
-        </div>
-      );
-    } else if (this.state.networkId !== "42") {
-      return (
-        <div>
-          <h1> Wrong ehtereum network ID detected </h1>
-          <p>
-            The Ocean X currently only provides support for Kovan. Please set
-            your metamask to Kovan.{" "}
-          </p>
         </div>
       );
     } else {
@@ -91,11 +72,42 @@ class App extends React.Component {
             setPair={this.setPair}
           />
           <Ticker ocean={this.ocean} pair={this.state.pair} />
-          <Trade ocean={this.ocean} api={this.api} pair={this.state.pair} />
+          {this.state.missingWeb3 ? (
+            missingWeb3Message()
+          ) : this.state.networkId !== "42" ? (
+            wrongNetworkMessage()
+          ) : (
+            <Trade ocean={this.ocean} api={this.api} pair={this.state.pair} />
+          )}
         </div>
       );
     }
   }
+}
+
+const missingWeb3Message = () => {
+  return (
+    <div>
+      <h1> No web3 provider detected. </h1>
+      <p>
+        {" "}
+        You probably need to install or activate{" "}
+        <a href="https://metamask.io/">metamask</a>
+      </p>
+    </div>
+  )
+}
+
+const wrongNetworkMessage = () => {
+  return (
+    <div>
+      <h1> Wrong ehtereum network ID detected </h1>
+      <p>
+        The Ocean X currently only provides support for Kovan. Please
+        set your metamask to Kovan.{" "}
+      </p>
+    </div>
+  )
 }
 
 render(<App />, document.getElementById("root"));
