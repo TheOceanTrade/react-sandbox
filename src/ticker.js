@@ -1,6 +1,10 @@
 import React from "react";
 
-export default class Trade extends React.Component {
+/******************************************************************************
+* Renders the ticker object for the the currently selected pair.
+* Updates state when pair prop is changed.
+******************************************************************************/
+export default class Ticker extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };

@@ -9,6 +9,10 @@ const styles = {
   fontFamily: "sans-serif"
 };
 
+/******************************************************************************
+* Container class.
+******************************************************************************/
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -50,7 +54,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     if (!this.state.networkLoaded || !this.state.pairLoaded) {
       return (
         <div>

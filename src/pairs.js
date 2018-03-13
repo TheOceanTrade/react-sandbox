@@ -1,5 +1,10 @@
 import React from "react";
 
+
+/******************************************************************************
+* Simple html option element to choose trading pair.
+******************************************************************************/
+
 export default class Pairs extends React.Component {
   constructor(props) {
     super(props);
@@ -8,11 +13,13 @@ export default class Pairs extends React.Component {
   }
 
   handleChange(event) {
+    // Inform the main container that the pair was chained
     this.props.setPair(event.target.value);
   }
 
   render() {
     let pairOptions = this.props.pairs.map((pair, index) => {
+      // Construct a standard base/quote string from the symbols
       const text = pair.baseToken.symbol + "/" + pair.quoteToken.symbol;
       return (
         <option value={index} key={index}>

@@ -1,5 +1,12 @@
 import React from "react";
 
+
+
+/******************************************************************************
+* Renders necessary form fields to make trades with on the trading pair
+* passed in through props
+******************************************************************************/
+
 export default class Trade extends React.Component {
   constructor(props) {
     super(props);
