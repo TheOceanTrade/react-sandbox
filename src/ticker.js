@@ -6,15 +6,23 @@ export default class Trade extends React.Component {
     this.state = { loading: true };
   }
 
+  async componentWillReceiveProps() {
+    this.setTicker(this.props.pair)
+  }
+
   async componentWillMount() {
+    await this.setTicker(this.props.pair)
+    this.setState({
+      loading: false
+    });
+  }
+
+  async setTicker(pair) {
     let ticker = await this.props.ocean.marketData.ticker({
       baseTokenAddress: this.props.pair.baseToken.address,
       quoteTokenAddress: this.props.pair.quoteToken.address
     });
-    this.setState({
-      loading: false,
-      ticker
-    });
+    this.setState({ticker})
   }
 
   render() {
