@@ -19,8 +19,7 @@ class App extends React.Component {
     this.setPair = this.setPair.bind(this);
     this.api = {
       // key: "",
-      // secret: "",
-      baseURL: `https://kovan.theoceanx.com/api/v0`
+      // secret: ""
     };
     this.state = {};
   }
