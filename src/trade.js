@@ -149,7 +149,7 @@ export default class Trade extends React.Component {
       return (
         <div>
           <h1>You need to get api keys to access trading functionality</h1>
-          <a href="https://beta.theoceanx.com/login">
+          <a href="https://beta.theoceanx.com/">
             Get Your API Keys here
           </a>
           <p>
