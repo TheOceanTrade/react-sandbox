@@ -14,6 +14,7 @@ export default class Trade extends React.Component {
 
     this.selectOrderType = this.selectOrderType.bind(this);
     this.selectOrderSide = this.selectOrderSide.bind(this);
+    this.selectFeeOption = this.selectFeeOption.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -24,6 +25,10 @@ export default class Trade extends React.Component {
 
   selectOrderSide(event) {
     this.setState({ side: event.target.value });
+  }
+
+  selectFeeOption(event) {
+    this.setState({ feeOption: event.target.value });
   }
 
   handleChange(event) {
@@ -38,7 +43,7 @@ export default class Trade extends React.Component {
       quoteTokenAddress: this.props.pair.quoteToken.address,
       side: this.state.side,
       orderAmount: this.state.orderAmount,
-      feeOption: 'feeInNative'
+      feeOption: this.state.feeOption
     };
     try {
       let result;
@@ -97,6 +102,21 @@ export default class Trade extends React.Component {
             type="radio"
             name="orderSide"
             value="sell"
+          />
+          <br />
+          <label> Fee in ZRX token (10% discount)</label>
+          <input
+            onClick={this.selectFeeOption}
+            type="radio"
+            name="feeOption"
+            value="feeInZrx"
+          />
+          <label> Fee in native token </label>
+          <input
+            onClick={this.selectFeeOption}
+            type="radio"
+            name="feeOption"
+            value="feeInNative"
           />
           <br />
           <div>
