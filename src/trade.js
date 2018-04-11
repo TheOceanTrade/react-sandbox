@@ -120,7 +120,7 @@ export default class Trade extends React.Component {
           />
           <br />
           <div>
-            <label>Amount</label>
+            <label>Amount (in <a href="https://0xproject.com/docs/0xjs#zeroEx-toBaseUnitAmount" target="_blank">base units</a>) </label>
             <input
               type="text"
               name="orderAmount"
