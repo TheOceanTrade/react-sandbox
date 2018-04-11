@@ -89,6 +89,7 @@ export default class Trade extends React.Component {
           />
 
           <h3> Order Details </h3>
+          <h4>Side</h4>
           <label> Buy </label>
           <input
             onClick={this.selectOrderSide}
@@ -104,14 +105,15 @@ export default class Trade extends React.Component {
             value="sell"
           />
           <br />
-          <label> Fee in ZRX token (10% discount)</label>
+          <h4>Fee Denomination</h4>
+          <label> ZRX (10% discount)</label>
           <input
             onClick={this.selectFeeOption}
             type="radio"
             name="feeOption"
             value="feeInZrx"
           />
-          <label> Fee in native token </label>
+          <label> Native token </label>
           <input
             onClick={this.selectFeeOption}
             type="radio"
@@ -120,16 +122,17 @@ export default class Trade extends React.Component {
           />
           <br />
           <div>
-            <label>Amount (in <a href="https://0xproject.com/docs/0xjs#zeroEx-toBaseUnitAmount" target="_blank">base units</a>) </label>
+            <h4>Amount</h4>
             <input
               type="text"
               name="orderAmount"
               onChange={this.handleChange}
             />
+            <label>in <a href="https://0xproject.com/docs/0xjs#zeroEx-toBaseUnitAmount" target="_blank">base units</a> </label>
           </div>
           {this.state.orderType === "limit" ? (
             <div>
-              <label>Price</label>
+              <h4>Price</h4>
               <input type="text" name="price" onChange={this.handleChange} />
             </div>
           ) : null}
