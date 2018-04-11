@@ -37,7 +37,8 @@ export default class Trade extends React.Component {
       baseTokenAddress: this.props.pair.baseToken.address,
       quoteTokenAddress: this.props.pair.quoteToken.address,
       side: this.state.side,
-      orderAmount: this.state.orderAmount
+      orderAmount: this.state.orderAmount,
+      feeOption: 'feeInNative'
     };
     try {
       let result;
