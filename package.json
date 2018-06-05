@@ -9,7 +9,7 @@
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-scripts": "1.1.0",
-    "the-ocean-x": "0.4.0"
+    "the-ocean": "1.0.1"
   },
   "devDependencies": {},
   "scripts": {

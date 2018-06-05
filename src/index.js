@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import Trade from "./trade";
 import Pairs from "./pairs";
 import Ticker from "./ticker";
-import createOcean from "the-ocean-x/web"; // notice we are using '/web' here in react
+import createOcean from "the-ocean/web"; // notice we are using '/web' here in react
 
 const styles = {
   fontFamily: "sans-serif"
